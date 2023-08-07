@@ -98,5 +98,52 @@ public class Main {
     }
 }
 
+//eg 4 
+
+/*
+Yes, in Java, you can define methods inside an enum. The methods can be instance methods, static methods, and even abstract methods.
+*/
+
+// normal methods
+
+
+public enum Day {
+    SUNDAY, MONDAY, TUESDAY, WEDNESDAY, 
+    THURSDAY, FRIDAY, SATURDAY;
+
+    public boolean isWeekend() {
+        return (this == SATURDAY || this == SUNDAY);
+    }
+
+    public static void main(String[] args) {
+        System.out.println(Day.SUNDAY.isWeekend());  // true
+        System.out.println(Day.MONDAY.isWeekend());  // false
+    }
+}
+
+eg 5: defining abtsract method 
+
+
+public enum Operation {
+    ADD {
+        @Override
+        public int apply(int x, int y) {
+            return x + y;
+        }
+    },
+    SUBTRACT {
+        @Override
+        public int apply(int x, int y) {
+            return x - y;
+        }
+    };
+
+    public abstract int apply(int x, int y);
+
+    public static void main(String[] args) {
+        System.out.println(Operation.ADD.apply(2, 3));       // 5
+        System.out.println(Operation.SUBTRACT.apply(5, 3));  // 2
+    }
+}
 
 
