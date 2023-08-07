@@ -17,3 +17,10 @@ public class Main {
         }
     }
 }
+
+
+/*
+
+eums can be dedined inside class /  interface, but not inside,  a method
+
+*/
