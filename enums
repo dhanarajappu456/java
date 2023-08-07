@@ -1,3 +1,6 @@
+//eg~:1
+
+
 public class Main {
     public enum Day {
         SUNDAY, MONDAY, TUESDAY, WEDNESDAY,
@@ -14,6 +17,35 @@ public class Main {
         // You can also loop through all the values
         for (Day day : Day.values()) {
             System.out.println(day);
+        }
+    }
+}
+
+//eg~:2
+public enum Day {
+    SUNDAY("Sunday"),
+    MONDAY("Monday"),
+    TUESDAY("Tuesday"),
+    WEDNESDAY("Wednesday"),
+    THURSDAY("Thursday"),
+    FRIDAY("Friday"),
+    SATURDAY("Saturday");
+
+    private String dayName;
+
+    Day(String dayName) {
+        this.dayName = dayName;
+    }
+
+    public String getDayName() {
+        return this.dayName;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        for (Day day : Day.values()) {
+            System.out.println(day.getDayName());
         }
     }
 }
