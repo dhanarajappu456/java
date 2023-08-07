@@ -1,4 +1,46 @@
-//eg~:1
+
+
+
+//eg 1 :
+
+//handson  
+public enum Color {
+    RED(1),
+    BLUE(2),
+    GREEN(3);
+
+    private final int value;
+
+    Color(int value) {
+        this.value = value;
+    }
+
+    public int getValue() {
+        return this.value;
+    }
+
+    public static void main(String[] args) {
+        // Print all colors and their values
+        for (Color color : Color.values()) {
+            System.out.println(color + ": " + color.getValue());
+        }
+        
+        // Print a specific color
+        System.out.println(Color.RED);
+        
+        // Print the name of a specific color
+        System.out.println(Color.RED.name());
+
+        // Print the value of a specific color
+        System.out.println(Color.RED.getValue());
+
+        // Print the number of colors
+        System.out.println(Color.values().length);
+    }
+}
+
+
+//eg~:2
 
 
 public class Main {
@@ -21,7 +63,13 @@ public class Main {
     }
 }
 
-//eg~:2
+//eg~:3 
+/*
+
+eums can be dedined inside class /  interface, but not inside,  a method
+
+*/
+
 public enum Day {
     SUNDAY("Sunday"),
     MONDAY("Monday"),
@@ -51,8 +99,4 @@ public class Main {
 }
 
 
-/*
 
-eums can be dedined inside class /  interface, but not inside,  a method
-
-*/
