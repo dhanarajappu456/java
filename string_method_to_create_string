@@ -1,0 +1,68 @@
+1. String(byte[] byte_arr) – Construct a new String by decoding the byte array. It uses the platform’s default character set for decoding.
+
+Example:
+byte[] b_arr = {71, 101, 101, 107, 115};
+String s_byte = new String(b_arr); //Geeks
+
+2. String(byte[] byte_arr, Charset char_set) – Construct a new String by decoding the byte array. It uses the char_set for decoding.
+
+Example:
+byte[] b_arr = {71, 101, 101, 107, 115};
+Charset cs = Charset.defaultCharset();
+String s_byte_char = new String(b_arr, cs); //Geeks
+
+3. String(byte[] byte_arr, String char_set_name) – Construct a new String by decoding the byte array. It uses the char_set_name for decoding.
+It looks similar to the above constructs and they appear before similar functions but it takes the String(which contains char_set_name) as parameter while the above constructor takes CharSet.
+
+Example:
+byte[] b_arr = {71, 101, 101, 107, 115};
+String s = new String(b_arr, "US-ASCII"); //Geeks
+
+4. String(byte[] byte_arr, int start_index, int length) – Construct a new string from the bytes array depending on the start_index(Starting location) and length(number of characters from starting location).
+
+Example:
+byte[] b_arr = {71, 101, 101, 107, 115};
+String s = new String(b_arr, 1, 3); // eek
+
+5. String(byte[] byte_arr, int start_index, int length, Charset char_set) – Construct a new string from the bytes array depending on the start_index(Starting location) and length(number of characters from starting location). Uses char_set for decoding.
+
+Example:
+byte[] b_arr = {71, 101, 101, 107, 115};
+Charset cs = Charset.defaultCharset();
+String s = new String(b_arr, 1, 3, cs); // eek
+
+6. String(byte[] byte_arr, int start_index, int length, String char_set_name) – Construct a new string from the bytes array depending on the start_index(Starting location) and length(number of characters from starting location). Uses char_set_name for decoding.
+
+Example:
+byte[] b_arr = {71, 101, 101, 107, 115};
+String s = new String(b_arr, 1, 4, "US-ASCII"); // eeks
+
+7. String(char[] char_arr) – Allocates a new String from the given Character array
+
+Example:
+char char_arr[] = {'G', 'e', 'e', 'k', 's'};
+String s = new String(char_arr); //Geeks
+
+8. String(char[] char_array, int start_index, int count) – Allocates a String from a given character array but chooses count characters from the start_index.
+
+Example:
+char char_arr[] = {'G', 'e', 'e', 'k', 's'};
+String s = new String(char_arr , 1, 3); //eek
+
+9. String(int[] uni_code_points, int offset, int count) – Allocates a String from a uni_code_array but chooses count characters from the start_index.
+
+Example:
+int[] uni_code = {71, 101, 101, 107, 115};
+String s = new String(uni_code, 1, 3); //eek
+
+10. String(StringBuffer s_buffer) – Allocates a new string from the string in s_buffer
+
+Example:
+StringBuffer s_buffer = new StringBuffer("Geeks");
+String s = new String(s_buffer); //Geeks
+
+11. String(StringBuilder s_builder) – Allocates a new string from the string in s_builder
+
+Example:
+StringBuilder s_builder = new StringBuilder("Geeks");
+String s = new String(s_builder); //Geeks
