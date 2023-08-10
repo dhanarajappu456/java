@@ -1,0 +1,74 @@
+
+### Custom Functional Interface with Return Type:
+
+```java
+@FunctionalInterface
+interface StringProcessor {
+    String process(String input);
+}
+```
+
+### 1. Anonymous Class:
+
+We'll create an instance of the `StringProcessor` interface using an anonymous class and override the `process` method:
+
+```java
+public class Test {
+    public static void main(String[] args) {
+        StringProcessor processorAnonymousClass = new StringProcessor() {
+            @Override
+            public String process(String input) {
+                return "Processed by anonymous class: " + input.toUpperCase();
+            }
+        };
+
+        System.out.println(processorAnonymousClass.process("John"));
+    }
+}
+```
+
+Output:
+```
+Processed by anonymous class: JOHN
+```
+
+
+
+___________________________________________________________________________________________________________
+
+
+
+
+
+### 2. Lambda Expression:
+
+Lambda expressions can also return values. The return type is inferred from the context:
+
+```java
+public class Test {
+    public static void main(String[] args) {
+        StringProcessor processorLambda = (String input) -> {
+            return "Processed by lambda: " + input.toLowerCase();
+        };
+
+        System.out.println(processorLambda.process("JOHN"));
+    }
+}
+```
+
+Output:
+```
+Processed by lambda: john
+```
+
+
+
+
+### Simplifying Lambda Even Further:
+
+If the lambda body has just one statement, and that statement is a return statement, you can simplify it even further:
+
+```java
+StringProcessor processorLambda = input -> "Processed by simplified lambda: " + input.toLowerCase();
+```
+
