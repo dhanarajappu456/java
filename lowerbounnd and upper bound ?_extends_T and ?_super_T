@@ -1,0 +1,41 @@
+Certainly! In Java's generics, the notation `? super T` is used to represent a bounded wildcard which restricts the unknown type to be a supertype of `T` (or `T` itself). It is known as a *lower-bounded wildcard*.
+
+
+1. **Wildcard `?`**: The wildcard `?` represents an unknown type. For instance, when you see something like `List<?>`, it represents a list of some unknown type.
+
+2. **`super  T`**: This is a lower bound which specifies that the unknown type (represented by `?`) can be `T` or any superclass of `T`.
+
+3. **Usage**:  Lower-bounded wildcards are useful in scenarios where you want to write data to a structure, ensuring type safety. They let you ensure that the objects being added are of a specific type or a subtype of that type.
+
+
+
+
+Here's a simple example to help illustrate this concept:
+
+```java
+import java.util.List;
+
+public class WildcardExample {
+    public static void addIntegersToList(List<? super Integer> list) {
+        list.add(1);
+        list.add(2);
+        list.add(3);
+    }
+
+    public static void main(String[] args) {
+        List<Number> numbers = new ArrayList<>();
+        addIntegersToList(numbers);
+        System.out.println(numbers);  // Expected: [1, 2, 3]
+    }
+}
+```
+
+In the above example:
+
+- The method `addIntegersToList` accepts a `List` where the element type is either `Integer` or a superclass of `Integer` (like `Number` or `Object`). This ensures that the list can safely accept `Integer` values.
+
+- The `List<Number> numbers` can safely be passed to `addIntegersToList` because `Number` is a supertype of `Integer`.
+
+The opposite of `? super T` is `? extends T`, which is an *upper-bounded wildcard*. It denotes that the type can be `T` or any subtype of `T`.
+
+To summarize: `? super T` allows for more flexibility in types when you're producing values (e.g., adding items to a collection), while `? extends T` gives you flexibility when you're consuming values (e.g., reading items from a collection).
