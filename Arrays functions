@@ -1,0 +1,36 @@
+https://www.geeksforgeeks.org/array-class-in-java/?ref=lbp
+
+
+
+
+Arrays.asList(arr) 
+
+
+1)it is backed by the array from which you create this , list,  any change to the array will also be visible in list(ie, like a refernce),
+
+
+
+
+2) you can't change the created, list .
+
+if you need to change the list , ie, if you anticipate the need to modify the list (add, remove, etc.), then you'd typically create a new ArrayList or another modifiable list:
+
+
+List<String> modifiableList = new ArrayList<>(Arrays.asList(array));
+
+3)always try to convert  array of objects(lie wrapper) than primitive types 
+
+
+
+
+When you use Arrays.asList() with a primitive array (like int[], char[], etc.), you won't get the expected behavior. 
+
+Instead of creating a List of each individual primitive, it will treat the entire primitive array as a single element in the list.
+
+The reason is that Arrays.asList() expects varargs of objects (T...), not primitive types. When you pass a primitive array, the whole array is considered as a single object of type int[], char[], etc.
+
+Here's an example to illustrate:
+
+int[] intArray = {1, 2, 3, 4, 5};
+List<int[]> list = Arrays.asList(intArray);
+System.out.println(list.size());  // Outputs: 1
