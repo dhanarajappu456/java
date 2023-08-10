@@ -1,0 +1,49 @@
+In Java, static methods are associated with the class itself, not with an instance of the class. Because of this, the concept of overriding, as it applies to instance methods, doesn't apply the same way to static methods. 
+
+However, a static method in a subclass can have the same name and signature as a static method in its superclass. This is known as method hiding, not overriding. Here's what happens:
+
+
+
+
+1. **Method Hiding**: If you declare a static method in a child class with the same signature as a static method in the parent class, the method in the child class hides the method in the parent class.
+
+2. **Invocation**: The method that gets invoked depends on the reference type, not on the runtime object. This behavior is different from instance methods (polymorphism) where the invoked method is determined by the runtime type of the object.
+
+
+Let's look at an example to clarify:
+
+```java
+class Parent {
+    static void staticMethod() {
+        System.out.println("Static method in Parent class.");
+    }
+}
+
+class Child extends Parent {
+    // This method hides the static method in Parent
+    static void staticMethod() {
+        System.out.println("Static method in Child class.");
+    }
+}
+
+public class Test {
+    public static void main(String[] args) {
+        Parent p = new Parent();
+        Child c = new Child();
+
+        // Calls the static method in Parent class
+        p.staticMethod();
+
+        // Calls the static method in Child class
+        c.staticMethod();
+
+        // Even if the reference is of Parent type and object is Child, it calls the Parent's static method
+        Parent p2 = new Child();
+        p2.staticMethod();
+    }
+}
+```
+
+In the above code, even though `p2` refers to an object of `Child`, the static method of `Parent` gets called, illustrating that for static methods, the method that gets called is based on the reference type, not the runtime object type.
+
+Remember: Even though it looks similar, this is not method overriding. The static method in the subclass hides the static method in the superclass.
