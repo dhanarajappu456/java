@@ -1,0 +1,59 @@
+In Java, naming conventions are recommendations, not hard rules. However, adhering to these conventions makes code more readable and maintainable. Here are the common naming conventions in Java:
+
+1. **Packages**:
+   - All lowercase.
+   - Typically use reversed domain names to ensure uniqueness (e.g., `com.example.projectname`).
+
+     Example: `org.openai.gpt`, `java.util`, `javax.swing`.
+
+2. **Classes and Interfaces**:
+   - Use CamelCase (start with an uppercase letter and capitalize the first letter of each subsequent concatenated word).
+   - Typically nouns or noun phrases.
+   
+     Examples: `String`, `ArrayList`, `InputStream`, `Serializable`.
+
+3. **Methods**:
+   - Use camelCase (start with a lowercase letter and capitalize the first letter of each subsequent concatenated word).
+   - Typically verbs or verb phrases.
+   
+     Examples: `toString()`, `getBackground()`, `setForeground()`.
+
+4. **Variables (including class/instance variables, local variables, and parameters)**:
+   - Use camelCase.
+   - Should not start with an underscore (`_`) or dollar sign (`$`), though both are allowed.
+   - Descriptive names are preferred over short names or abbreviations.
+   
+     Examples: `counter`, `wordList`, `tempValue`.
+
+5. **Constants (final variables)**:
+   - All uppercase with underscores separating words.
+   
+     Examples: `MAX_VALUE`, `PI`, `DEFAULT_SIZE`.
+
+6. **Enumeration Names (enum types)**:
+   - Similar to classes. Use CamelCase.
+   
+     Example: `DayOfWeek`.
+
+7. **Enumeration Values**:
+   - All uppercase, similar to constants.
+   
+     Examples inside an enum: `MONDAY`, `TUESDAY`.
+
+8. **Generics Type Parameters**:
+   - Single uppercase letter conventionally. Common names include:
+     - `T` for type
+     - `E` for element (used extensively by the Java Collections Framework)
+     - `K` for key
+     - `V` for value
+     - `N` for number
+   
+     Example: `class Box<T> { ... }` or `Map<K, V>`.
+
+9. **Annotations**:
+   - Use CamelCase.
+   - Typically nouns, noun phrases, or adjectives.
+   
+     Examples: `Override`, `FunctionalInterface`.
+
+Remember, these are conventions and not strict rules. However, following them ensures that your code is in line with the wider Java community standards, making it easier to read and maintain by others.
