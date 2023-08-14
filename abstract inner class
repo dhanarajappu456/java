@@ -1,0 +1,183 @@
+
+
+
+
+CASE where the concrete class is seperated out of the outer clas 
+______________________________________________________________________________________
+
+
+in this case , when dealing with inner classes , we might need to associae the inner class with the outer class object.
+
+
+1)both outer and inner is abstract 
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+subclass outer class to crete the object, subclass the innerclass, 
+
+use the outer object to tie the inner object to 
+
+
+
+
+// Both the outer class and the inner class are abstract
+abstract class OuterClass {
+
+    // Abstract inner class
+    public abstract class AbstractInnerClass {
+        abstract void abstractMethod();
+    }
+}
+
+// Subclass the abstract OuterClass to provide a concrete outer class
+class ConcreteOuterClass extends OuterClass {
+    // This class might have its own methods and attributes, 
+    // but for this example, it's left empty
+}
+
+// Separate concrete class that extends the abstract inner class
+class ConcreteClass extends OuterClass.AbstractInnerClass {
+    
+    // Constructor must receive an instance of OuterClass (or its concrete subclass)
+    public ConcreteClass(OuterClass outer) {
+        outer.super(); 
+    }
+
+    @Override
+    void abstractMethod() {
+        System.out.println("Implemented abstract method in ConcreteClass.");
+    }
+}
+
+// Test class to demonstrate the usage
+public class Main {
+    public static void main(String[] args) {
+        ConcreteOuterClass concreteOuter = new ConcreteOuterClass(); // Create an instance of the concrete subclass of OuterClass
+        ConcreteClass concrete = new ConcreteClass(concreteOuter);   // Use that instance to instantiate ConcreteClass
+        
+        concrete.abstractMethod();  // Outputs: Implemented abstract method in ConcreteClass.
+    }
+}
+
+
+
+2)outer class is not abstract 
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+since outer class is non abstract, directly create the object of it and tie the inner class with it 
+
+// Outer class definition
+public class OuterClass {
+
+    // Abstract inner class
+    public abstract class AbstractInnerClass {
+        abstract void abstractMethod();
+    }
+}
+
+// Separate concrete class that extends the abstract inner class
+class ConcreteClass extends OuterClass.AbstractInnerClass {
+    
+    // Constructor must create an instance of OuterClass first
+    public ConcreteClass(OuterClass outer) {
+        outer.super(); // tie /  Associates with an instance of the outer class
+    }
+
+    @Override
+    void abstractMethod() {
+        System.out.println("Implemented abstract method in ConcreteClass.");
+    }
+}
+
+// Test class to demonstrate the usage
+public class Test {
+    public static void main(String[] args) {
+        OuterClass outer = new OuterClass();
+        ConcreteClass concrete = new ConcreteClass(outer);
+        concrete.abstractMethod();  // Outputs: Implemented abstract method in ConcreteClass.
+    }
+}
+
+CASE where the concrete class is inside the outer  class 
+______________________________________________________________________________________
+
+in above cases the concrete implementatio were sepearted from the outer class, that is why we came to tie the  outer class object with the inner class, 
+
+but if we had concrete class inside the outer class then tieing is note needed , as there is no confustion of to which outer class object the inner class belongs to 
+
+1)both abstract class 
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+// Abstract OuterClass
+abstract class OuterClass {
+
+    // Abstract InnerClass
+    public abstract class AbstractInnerClass {
+        abstract void abstractMethod();
+    }
+
+    // Concrete implementation of the AbstractInnerClass within the OuterClass
+    public class ConcreteImplementation extends AbstractInnerClass {
+
+        @Override
+        void abstractMethod() {
+            System.out.println("Implemented abstract method in ConcreteImplementation.");
+        }
+    }
+
+    // Method inside OuterClass to demonstrate using the concrete implementation
+    public void useConcreteImplementation() {
+        ConcreteImplementation instance = new ConcreteImplementation();
+        instance.abstractMethod();
+    }
+}
+
+// Subclass the abstract OuterClass to provide a concrete outer class
+class ConcreteOuterClass extends OuterClass {
+    // This class can have its own methods and attributes, 
+    // but for this example, it's left empty
+}
+
+// Test class to demonstrate the usage
+public class Main {
+    public static void main(String[] args) {
+        ConcreteOuterClass concreteOuter = new ConcreteOuterClass();
+        concreteOuter.useConcreteImplementation();  // Outputs: Implemented abstract method in ConcreteImplementation.
+    }
+}
+
+
+
+
+2)outer is non abstract 
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+class OuterClass {
+
+    // Abstract inner class
+    public abstract class AbstractInnerClass {
+        abstract void abstractMethod();
+    }
+
+    // Concrete implementation of the abstract inner class
+    // This is done within the same outer class.
+    public class ConcreteImplementation extends AbstractInnerClass {
+
+        @Override
+        void abstractMethod() {
+            System.out.println("Implemented abstract method in ConcreteImplementation.");
+        }
+    }
+
+    // A method in the outer class to demonstrate using the concrete implementation
+    public void demonstrateMethod() {
+        ConcreteImplementation instance = new ConcreteImplementation();
+        instance.abstractMethod();
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        OuterClass outer = new OuterClass();
+        outer.demonstrateMethod();  // Outputs: Implemented abstract method in ConcreteImplementation.
+    }
+}
+
