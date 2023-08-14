@@ -1,0 +1,87 @@
+multiple inheritance , with interface
+
+and diamond problem with the default method in two intefce
+
+when we have same default method in 3 parent interface, confusion arise on which to call, from the implementing class
+
+the resolution to this is :
+
+1) ovveride the default method in the implementing class(must be done )
+   inside it spefically call the deful method ,using
+
+  	 interface_name.super.method_name()
+
+2)additionally you can create other non static method inside the implementing class, to call the specific method of the interface.
+
+note: remember not call the  "interface_name.super.method_name()  " main or other static method 
+
+
+// Java program to demonstrate Multiple Inheritance
+// through default methods
+
+// Interface 1
+interface PI1 {
+
+	// Default method
+	default void show()
+	{
+
+		// Print statement if method is called
+		// from interface 1
+		System.out.println("Default PI1");
+	}
+}
+
+// Interface 2
+interface PI2 {
+
+	// Default method
+	default void show()
+	{
+
+		// Print statement if method is called
+		// from interface 2
+		System.out.println("Default PI2");
+	}
+}
+
+// Main class
+// Implementation class code
+class Main implements PI1, PI2 {
+
+	// Overriding default show method
+	@Override
+	public void show()
+	{
+
+		// Using super keyword to call the show
+		// method of PI1 interface
+		PI1.super.show();//Should not be used directly in the main method;
+
+		// Using super keyword to call the show
+		// method of PI2 interface
+		PI2.super.show();//Should not be used directly in the main method;
+	}
+
+	//Method for only executing the show() of PI1
+	public void showOfPI1() {
+		PI1.super.show();//Should not be used directly in the main method;
+	}
+
+	//Method for only executing the show() of PI2
+	public void showOfPI2() {
+		PI2.super.show(); //Should not be used directly in the main method;
+	}
+
+	// Mai driver method
+	public static void main(String args[])
+	{
+
+		// Creating object of this class in main() method
+		Main d = new Main();
+		d.show();
+		System.out.println("Now Executing showOfPI1() showOfPI2()");
+		d.showOfPI1();
+		d.showOfPI2();
+	}
+}
