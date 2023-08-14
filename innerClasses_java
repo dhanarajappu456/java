@@ -1,0 +1,52 @@
+
+
+1. **Static Nested Classes**: These are defined with the `static` keyword and do not have access to the instance variables of the outer class. They are more like static members of the outer class.
+
+2. **Inner Classes (Non-static Nested Classes)**: These classes do not have the `static` keyword, and they have access to the instance variables of the outer class, even if they're declared `private`.
+
+### Instantiation of Static Nested Classes:
+You don't need an instance of the outer class to instantiate a static nested class.
+
+```java
+class OuterClass {
+    static class StaticNestedClass {
+        public void display() {
+            System.out.println("Inside Static Nested Class.");
+        }
+    }
+}
+
+public class Test {
+    public static void main(String[] args) {
+        // Create an instance of the static nested class
+        OuterClass.StaticNestedClass nestedObject = new OuterClass.StaticNestedClass();
+        nestedObject.display();
+    }
+}
+```
+
+### Instantiation of non static Inner Classes:
+You need an instance of the outer class to instantiate a non-static nested class (inner class).
+
+```java
+class OuterClass {
+    class InnerClass {
+        public void display() {
+            System.out.println("Inside Inner Class.");
+        }
+    }
+}
+
+public class Test {
+    public static void main(String[] args) {
+        // Create an instance of the outer class
+        OuterClass outerObject = new OuterClass();
+        
+        // Create an instance of the inner class
+        OuterClass.InnerClass innerObject = outerObject.new InnerClass();
+        innerObject.display();
+    }
+}
+```
+
+Remember that inner classes can access instance variables of the outer class, making them useful for various purposes like listeners/adapters in GUI programming. Static nested classes, being static, cannot access instance-specific data or methods (unless they get them passed explicitly).
