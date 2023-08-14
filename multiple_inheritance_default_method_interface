@@ -1,8 +1,10 @@
-multiple inheritance , with interface
+part 1
+_______________________________________________________
 
-and diamond problem with the default method in two intefce
 
-when we have same default method in 3 parent interface, confusion arise on which to call, from the implementing class
+multiple inheritance , with interface  and diamond problem with the default method in two intefce
+
+when we have same default method in parent interface, confusion arise on which to call, from the implementing class
 
 the resolution to this is :
 
@@ -85,3 +87,71 @@ class Main implements PI1, PI2 {
 		d.showOfPI2();
 	}
 }
+/*
+
+Default PI1
+Default PI2
+Now Executing showOfPI1() showOfPI2()
+Default PI1
+Default PI2
+
+*/
+
+
+
+
+
+part 2
+_______________________________________________________
+Note: If we remove the implementation of default method from “TestClass”, we get a compiler error.
+If there is a diamond through interfaces, then there is no issue if none of the middle interfaces provide implementation of root interface.
+If they provide implementation, then implementation can be accessed as above using super keyword.
+
+
+
+// Java program to demonstrate How Diamond Problem
+// Is Handled in case of Default Methods
+
+// Interface 1
+interface GPI {
+
+	// Default method
+	default void show()
+	{
+
+		// Print statement
+		System.out.println("Default GPI");
+	}
+}
+
+// Interface 2
+// Extending the above interface
+interface PI1 extends GPI {
+}
+
+// Interface 3
+// Extending the above interface
+interface PI2 extends GPI {
+}
+
+// Main class
+// Implementation class code
+class TestClass implements PI1, PI2 {
+
+	// Main driver method
+	public static void main(String args[])
+	{
+
+		// Creating object of this class
+		// in main() method
+		TestClass d = new TestClass();
+
+		// Now calling the function defined in interface 1
+		// from whom Interface 2and 3 are deriving
+		d.show();
+	}
+}
+/*
+
+Default GPI
+*/
