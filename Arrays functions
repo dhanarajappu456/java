@@ -31,6 +31,32 @@ The reason is that Arrays.asList() expects varargs of objects (T...), not primit
 
 Here's an example to illustrate:
 
+1)array of primitives as list 
+____________________________________
+
 int[] intArray = {1, 2, 3, 4, 5};
 List<int[]> list = Arrays.asList(intArray);
 System.out.println(list.size());  // Outputs: 1
+
+
+
+
+intArray[2] = 7;  // This modifies the original array which the list is pointing to.
+// intList.set(0, new int[]{5, 6, 7, 8});  // This will throw an UnsupportedOperationException.
+
+
+
+
+
+2)array of objects/references  as list 
+____________________________________
+but if it was array of object that you are trying to convert , you get a list , where each item in the list, is the object  that was in the former array , 
+
+remember in this case also , since list is backed by array , you cant add or remove elements to the list , but can change the the reference that points the object in the list 
+
+eg: String[] stringArray = {"Anna", "Bob", "Charlie", "David"};
+List<String> stringList = Arrays.asList(stringArray);
+
+stringList.set(1, "Bill");  // This is valid.
+// stringList.add("Eve");  // This will throw an UnsupportedOperationException.
+
