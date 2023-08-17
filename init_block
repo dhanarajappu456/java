@@ -1,0 +1,86 @@
+When we want certain common resources to be executed with every constructor we can put the code in the init block. 
+Init block is always executed before any constructor, whenever a constructor is used for creating a new object.
+
+
+
+class Temp
+{
+    // block to be executed before any constructor.
+    {
+        System.out.println("init block");
+    }
+ 
+    // no-arg constructor
+    Temp()
+    {
+        System.out.println("default");
+    }
+ 
+    // constructor with one argument.
+    Temp(int x)
+    {
+        System.out.println(x);
+    }
+ 
+    public static void main(String[] args)
+    {
+        // Object creation by calling no-argument
+        // constructor.
+        new Temp();
+ 
+        // Object creation by calling parameterized
+        // constructor with one parameter.
+        new Temp(10);
+    }
+}
+Output: 
+/*
+op
+init block
+default
+init block
+10
+*/
+
+
+
+
+NOTE: If there are more than one blocks, they are executed in the order in which they are defined within the same class. See the ex. 
+Example :
+ 
+
+
+class Temp
+{
+    // block to be executed first
+    {
+        System.out.println("init");
+    }
+    Temp()
+    {
+        System.out.println("default");
+    }
+    Temp(int x)
+    {
+        System.out.println(x);
+    }
+ 
+    // block to be executed after the first block
+    // which has been defined above.
+    {
+        System.out.println("second");
+    }
+    public static void main(String args[])
+    {
+        new Temp();
+        new Temp(10);
+    }
+}
+Output :  
+
+init
+second
+default
+init
+second
+10
