@@ -1,0 +1,52 @@
+
+
+
+binsearch when not present 
+parallelsort 
+comparator
+
+all the wrapper class have implemented the comparable interface , that has compareTo method
+usage :  obj1.compareTo(obj2)
+
+
+
+
+when you sort the collection of objects() 
+__________________________________________________________________
+1)by default natural ordering takes place,(which  uses,   the  ob1.compareTo(ob2) method defintion of the elements, implemeted from comparable ).
+eg.sortingi array or Integer object, 
+
+additional info  :
+1
+
+each wrapper class has, static method int compare(type, type)(return -1 , 0 , 1) 
+
+the compare is especially to work with primitive type
+ 
+
+usage 
+
+Integer =   890; 
+
+Integer b  =980; 
+
+Integer.compare(a,b);
+
+
+2)and also each wrapper class implement the comparetTo function that has signature  obj1.comapreToT(ob2)
+
+this is by implementing the comparable as said, 
+
+
+this is especillay when you need to compar the object 
+
+
+
+
+2)if you need to modify the custom behaviour of the sort , you  need to implement the comparator interface that has 
+compare (ob1, ob2) method , 
+
+and pass this object to the sort method , additionally, 
+
+the sort would call the compar() function
+
