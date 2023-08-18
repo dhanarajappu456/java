@@ -97,6 +97,26 @@ public class Test {
     }
 }
 
+
+3)both non abstract
+
+
+public class OuterClass {
+    class InnerClass {
+        // ...
+    }
+}
+
+OuterClass outer = new OuterClass();
+OuterClass.InnerClass inner = outer.new InnerClass();
+
+
+so ,as a conlusion  of all of above : we need object of outer class not create the object of inner(non static) class 
+
+
+
+
+
 CASE where the concrete class is inside the outer  class 
 ______________________________________________________________________________________
 
