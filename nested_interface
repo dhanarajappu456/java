@@ -4,10 +4,44 @@
 unlike the  nested classes, nested interface don't need any object of outer class, as interface are not associated with the state, it is just method definition
 */
 
+
+
+
 // Java program to demonstrate working of
 // interface inside a class.
 import java.util.*;
 class Test {
+	interface Yes {
+		void show();
+	}
+}
+
+class Testing implements Test.Yes {
+	public void show()
+	{
+		System.out.println("show method of interface");
+	}
+}
+
+class A {
+	public static void main(String[] args)
+	{
+		Test.Yes obj;
+		Testing t = new Testing();
+		obj = t;
+		obj.show();
+	}
+}
+
+
+// Java program to demonstrate working of
+// interface inside a interface .
+
+// Java program to demonstrate working of
+// interface inside another interface.
+import java.util.*;
+interface Test {
+// remember you can't declare anny  inner members variable  (here the inner inreface is member of outer interface )  of an interface with modifiers except public 
 	interface Yes {
 		void show();
 	}
