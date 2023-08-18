@@ -7,7 +7,7 @@ wrapper object can be created using three ways:
 
 Using the constructor of the wrapper class   - the refercne will be differnt for different objects , even if the value of the argument is same 
 Using the valueOf() method provided by the Wrapper classes   - the referece point to same location if the value of the argument passed is same for both object 
-Using concept of AutoBoxing
+Using concept of AutoBoxing - under the hood it is calling valueOf, so above said property of same ref for 2 wrapper object, with same argument passed , is applicable here 
 
 //diff between wrapper object created with valueOf and  wrapper constructr
 
