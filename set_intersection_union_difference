@@ -1,0 +1,39 @@
+Sure! If you want to modify the original sets directly, here's how you can perform intersection, union, and difference:
+
+### 1. Intersection   - retainAll
+Modifying `set1` to keep only the elements that are common to both sets:
+
+```java
+Set<Integer> set1 = new HashSet<>(Arrays.asList(1, 2, 3, 4));
+Set<Integer> set2 = new HashSet<>(Arrays.asList(3, 4, 5, 6));
+
+set1.retainAll(set2);
+
+System.out.println(set1);  // Prints [3, 4]
+```
+
+### 2. Union   - addAll
+Modifying `set1` to contain all elements from both sets:
+
+```java
+Set<Integer> set1 = new HashSet<>(Arrays.asList(1, 2, 3, 4));
+Set<Integer> set2 = new HashSet<>(Arrays.asList(3, 4, 5, 6));
+
+set1.addAll(set2);
+
+System.out.println(set1);  // Prints [1, 2, 3, 4, 5, 6]
+```
+
+### 3. Difference  - remoceAll
+Modifying `set1` to contain only the elements that aren't in `set2`:
+
+```java
+Set<Integer> set1 = new HashSet<>(Arrays.asList(1, 2, 3, 4));
+Set<Integer> set2 = new HashSet<>(Arrays.asList(3, 4, 5, 6));
+
+set1.removeAll(set2);
+
+System.out.println(set1);  // Prints [1, 2]
+```
+
+In all the above examples, the original `set1` is directly modified to reflect the result of the set operation.
