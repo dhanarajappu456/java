@@ -14,7 +14,7 @@ usage :  obj1.compareTo(obj2)
 when you sort the collection of objects() 
 __________________________________________________________________
 1)by default natural ordering takes place,(which  uses,   the  ob1.compareTo(ob2) method defintion of the elements, implemeted from comparable ).
-eg.sortingi array or Integer object, 
+eg.sortingi array or Integer object, wrapper class have implementation of  comparable's compareTo function that retunn int values -1, 1 , 0
 
 additional info  :
 1
