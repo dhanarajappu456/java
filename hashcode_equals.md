@@ -24,15 +24,15 @@ which is not overriden for array ,
         set.add(array2);
 
         System.out.println("The Set contains the array [1, 2]." + " "+ set.contains(new int[]{1,2}));
-
-so you need to override  it, inside baseed on content , for  which you can use Array.equals and Arrays.hashcode when overriding the equals and hashcode, 
+```
+so you need to override  equals  and  hashcode , based on content , for  which you can use Array.equals and Arrays.hashcode when overriding the equals and hashcode, 
 
 
 
 
 for collections , rememeber the equals and hashcode is already overriden based on content , so no need to worry
 
-
+```
 import java.util.*;
 
 public class Main {
@@ -67,5 +67,5 @@ public class Main {
         }
     }
 }
-
+```
 this returns true
