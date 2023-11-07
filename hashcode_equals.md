@@ -30,7 +30,7 @@ so you need to override  equals  and  hashcode , based on content , for  which y
 
 
 
-for collections , rememeber the equals and hashcode is already overriden based on content , so no need to worry
+for collections , remember the equals and hashcode is already overriden based on content ,  you can directly use contains without worrying
 
 ```
 import java.util.*;
