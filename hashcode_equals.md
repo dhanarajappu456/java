@@ -7,7 +7,7 @@ if you need it based on content you need to override it with necessary logic,
 
 consider how equals and hashcode behave  differently   in case of array and other collections
 
-#for Arrays 
+# for Arrays 
   _________________
 the Arrays.equals and Arrays.hahscode ovveride it based  on content 
 
@@ -32,7 +32,7 @@ so you need to override  equals  and  hashcode , based on content , for  which y
 
 
 
-#for collectionss
+# for collectionss
 for collections , remember the equals and hashcode is already overriden based on content ,  you can directly use contains without worrying
 
 ```
