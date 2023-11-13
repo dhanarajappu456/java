@@ -1,0 +1,41 @@
+
+
+
+1) Arrays.asList 
+
+used to create the mutable list - from arrays 
+
+
+import java.util.Arrays;
+import java.util.List;
+
+public class AsListExample {
+    public static void main(String[] args) {
+        String[] array = {"apple", "banana", "orange"};
+        List<String> list = Arrays.asList(array);  // this is list backed by the array , and therefore u cant insert further elements to the list, as array is fixed in size, 
+      //modifying the list, infact modfiy the array itself(ie,like a reference) 
+
+      //you can also use elements as varargs, to asList , ie like Arrays.asList(el1, el2, el3. ...)
+
+        System.out.println(list);  // Outputs: [apple, banana, orange]
+    }
+}
+
+
+2)List.of --- usede to create the immutable list 
+
+creating immuatble list with List.of
+import java.util.List;
+
+public class ImmutableListExample {
+    public static void main(String[] args) {
+        // Creating an immutable list
+        List<String> fruits = List.of("apple", "banana", "orange");
+
+        // Attempting to modify the list will result in an UnsupportedOperationException
+        // fruits.add("grape"); // This line will throw an UnsupportedOperationException
+
+        // Displaying the contents of the immutable list
+        System.out.println(fruits);  // Outputs: [apple, banana, orange]
+    }
+}
