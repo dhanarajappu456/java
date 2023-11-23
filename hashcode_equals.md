@@ -127,6 +127,69 @@ class A{
   @Override
   public int hashCode(){
       System.out.println("first hashcode checked ");
+  # note the static hashcode method  of Objects class, used to get hashcode of any object
+  #there is another method in this class which is equals used to compare two objects even passing null as one argument
     return Objects.hashCode(a);
   }
 }
+```
+
+# Arraylist with custom objects -
+here equals on individual object  is called  when we compare two lists 
+eventough the hashcode is not used  here, it is best practice to overrdie both equals and hashcode always for 
+custom objects
+
+```
+import java.util.ArrayList;
+import java.util.List;
+
+
+public class Main {
+    public static void main(String[] args) {
+        List<CustomObject> list1 = new ArrayList<>();
+        list1.add(new CustomObject(1));
+        list1.add(new CustomObject(2));
+        list1.add(new CustomObject(3));
+
+        List<CustomObject> list2 = new ArrayList<>();
+        list2.add(new CustomObject(1));
+        list2.add(new CustomObject(2));
+        list2.add(new CustomObject(3));
+
+        // Check equality using equals method
+        System.out.println(list1.equals(list2));  // true
+    }
+}
+class CustomObject {
+    int value;
+
+    CustomObject(int value) {
+        this.value = value;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+      System.out.println("equals called");  // true
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null || getClass() != obj.getClass()) {
+            return false;
+        }
+        CustomObject other = (CustomObject) obj;
+        return value == other.value;
+    }
+
+    @Override
+    public int hashCode() {
+      System.out.println("hash called");  // true
+        return Integer.hashCode(value);
+    }
+}
+
+Output:
+
+equals called
+equals called
+equals called
+true
