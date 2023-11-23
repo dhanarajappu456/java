@@ -68,7 +68,65 @@ public class Main {
         } else {
             System.out.println("The Set does not contain the list [1, 2].");
         }
+
+
     }
 }
 ```
 this returns true
+
+
+# map with custom  object as the key, - u need to override the hashcode and equals for the class of object which is the key
+
+
+
+```
+import java.util.*;
+
+class HelloWorld {
+    public static void main(String[] args) {
+     
+        
+         Map<A,Integer> mp= new HashMap<>();
+    //each time you put a element to hashamp , its hash is calcculated , based on which 
+    //the bucket is detemined
+    
+    mp.put(new A(100),100);
+     mp.put(new A(200),200);
+     // when you check for contains or get, it calls hashcode to get the bucket, then 
+     // for all the element in the bucket calls equals , that determines the mathching element
+     System.out.println(mp.containsKey(new A(100)));
+  
+
+    }
+    
+   
+}
+
+class A{
+  
+  int a;
+  A(int val){
+    this.a = val;
+  }
+  
+  @Override
+  public boolean equals(Object o){
+    System.out.println("secondly the equals is checked");
+    if (this == o){
+      return true;
+    }
+    if(o ==null || this.getClass() != o.getClass()){
+      return false;
+      
+    }
+    A obj = (A)o;
+    return this.a == obj.a;
+    
+  }
+  @Override
+  public int hashCode(){
+      System.out.println("first hashcode checked ");
+    return Objects.hashCode(a);
+  }
+}
