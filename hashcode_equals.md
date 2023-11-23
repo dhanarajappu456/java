@@ -27,6 +27,8 @@ which is not overriden for array ,
         set.add(array2);
 
         System.out.println("The Set contains the array [1, 2]." + " "+ set.contains(new int[]{1,2}));
+
+
 ```
 so you need to override  equals  and  hashcode , based on content , for  which you can use Array.equals and Arrays.hashcode when overriding the equals and hashcode, 
 
@@ -132,6 +134,15 @@ class A{
     return Objects.hashCode(a);
   }
 }
+
+output
+
+first hashcode checked 
+first hashcode checked 
+first hashcode checked 
+secondly the equals is checked
+true
+
 ```
 
 # Arraylist with custom objects -
