@@ -129,7 +129,7 @@ class A{
   @Override
   public int hashCode(){
       System.out.println("first hashcode checked ");
-  # note the static hashcode method  of Objects class, used to get hashcode of any object
+  # note the static hashcode method  of Objects class (from java.util.Objects), used to get hashcode of any object
   #there is another method in this class which is equals used to compare two objects even passing null as one argument
     return Objects.hashCode(a);
   }
